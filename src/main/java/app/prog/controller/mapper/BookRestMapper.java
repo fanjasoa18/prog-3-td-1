@@ -23,5 +23,12 @@ public class BookRestMapper {
                 .build();
     }
 
-
+    public Book toDomain(BookResponse createBook) {
+        return Book.builder()
+                .id(createBook.getId())
+                .title(createBook.getTitle())
+                .author(createBook.getAuthor())
+                .pageNumber(0)
+                .build();
+    }
 }
