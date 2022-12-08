@@ -34,7 +34,7 @@ public class BookController {
     //TODO: This endpoint does not match with our API. Resolve it in the question-2-ii.
     @PutMapping("/books")
     public List<BookResponse> updateBooks(@RequestBody List<BookResponse> toUpdate) {
-        return service.updateBooks(toUpdate.stream().map(mapper::toDomain).toList()).stream()
+        return service.updateBooks(toUpdate.stream().map(mapper::NewToDomain).toList()).stream()
                 .map(mapper::toRest)
                 .toList();
     }

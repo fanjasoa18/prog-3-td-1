@@ -23,7 +23,7 @@ public class BookRestMapper {
                 .build();
     }
 
-    public Book toDomain(BookResponse createBook) {
+    public Book NewToDomain(BookResponse createBook) {
         return Book.builder()
                 .id(createBook.getId())
                 .title(createBook.getTitle())
