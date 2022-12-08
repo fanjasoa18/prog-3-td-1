@@ -2,6 +2,7 @@ package app.prog.controller.mapper;
 
 import app.prog.controller.response.BookResponse;
 import app.prog.model.Book;
+import app.prog.model.CreateBook;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,4 +15,13 @@ public class BookRestMapper {
                 .hasAuthor(domain.hasAuthor())
                 .build();
     }
+    public Book toDomain(CreateBook createBook) {
+        return Book.builder()
+                .title(createBook.getTitle())
+                .author(createBook.getAuthor())
+                .pageNumber(0)
+                .build();
+    }
+
+
 }

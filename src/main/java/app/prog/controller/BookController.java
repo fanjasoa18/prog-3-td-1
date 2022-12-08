@@ -3,6 +3,7 @@ package app.prog.controller;
 import app.prog.controller.mapper.BookRestMapper;
 import app.prog.controller.response.BookResponse;
 import app.prog.model.Book;
+import app.prog.model.CreateBook;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class BookController {
 
     //TODO: This endpoint does not match with our API. Resolve it in the question-1.
     @PostMapping("/books")
-    public List<BookResponse> createBooks(@RequestBody List<Book> toCreate) {
-        return service.createBooks(toCreate).stream()
+    public List<BookResponse> createBooks(@RequestBody List<CreateBook> toCreate) {
+        return service.createBooks(toCreate.stream().map(mapper::toDomain).toList()).stream()
                 .map(mapper::toRest)
                 .toList();
     }
