@@ -191,6 +191,18 @@ components:
           type: string
         author:
           type: string
+        category:
+          type: array
+          items:
+            - $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
     Author:
       type: object
       properties:
